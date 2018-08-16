@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <h3>{{ user.name }} id: {{ user.id }}</h3>
+
+
+
+    <button class="{% if follow %}btn btn-success{% else %}btn btn-default{% endif %}" id="btn-ajax" data-user="{{ user.id }}">{% if follow %}followed{% else %}Follow this user{% endif %}</button>
+
+        <h3>{{ adverts.title }}</h3>
+        <p>{{ adverts.content }}</p>
+
+{% endblock %}
+
+
+

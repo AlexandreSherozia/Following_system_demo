@@ -1,0 +1,12 @@
+.not-follower-state, .follower-state{
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: beige;
+    width: 150px;
+    height: 40px;
+    box-shadow: 6px 10px 8px #888888;
+}
+.follower-state{
+    background-color: #acf5d2;
+    box-shadow: 2px 4px 4px #888888;
+}

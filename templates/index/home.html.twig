@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        $('.button-ajax').click(function () {
+            $.ajax({
+                method: 'POST',
+                url: '/',
+                data: 'number='+$(this).data('number')
+            }).done(function (response) {
+               var number = response.number;
+               var message = response.success;
+               console.log(message);
+               /*$('#number').text(parseInt($('#number').text())+number);*/
+               $('#message').html(message);
+            });
+        });
+
+        /*setInterval(function () {
+            $.ajax({
+                method: 'POST',
+                url: '/',
+                data: 'number='+parseInt(10*Math.random())
+            }).done(function (response) {
+                var number = response.number;
+                $('#number').text(parseInt($('#number').text())+number);
+            });
+        }, 1000);*/
+    </script>
+{% endblock %}
+
+{% block body %}
+
+        <h1><span id="number">{{ total }}
+
+                <p class="well" id="message">stateless</p>
+
+    </span></h1>
+
+        {#{% for i in 0..1 %}
+            <button type="button" class="button-ajax" data-number="{{ i }}">Follow{{ i }}</button>
+        {% endfor %}#}
+
+    <button type="button" class="button-ajax">Follow</button>
+
+{% endblock %}
